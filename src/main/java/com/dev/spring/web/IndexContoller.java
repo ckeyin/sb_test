@@ -6,7 +6,8 @@
 // ======================================
 package com.dev.spring.web;
 
-import org.springframework.boot.SpringApplication;
+import com.dev.spring.service.HelloWorldService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAutoConfiguration
 public class IndexContoller {
 
+    @Autowired
+    private HelloWorldService helloWorldService;
+
     @RequestMapping("/")
     String home() {
+        System.out.println(helloWorldService.getHelloMessage());
         return "Hello World!";
     }
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(IndexContoller.class, args);
-    }
 }
