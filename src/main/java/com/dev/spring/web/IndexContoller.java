@@ -8,24 +8,27 @@ package com.dev.spring.web;
 
 import com.dev.spring.service.HelloWorldService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by cky on 2016/5/6 9:16.
  */
-@RestController
-@EnableAutoConfiguration
+@Controller
 public class IndexContoller {
 
     @Autowired
     private HelloWorldService helloWorldService;
 
     @RequestMapping("/")
-    String home() {
+    String home(Map<String, Object> model) {
         System.out.println(helloWorldService.getHelloMessage());
-        return "Hello World!";
+        model.put("time", new Date());
+        model.put("message", helloWorldService.getMessage());
+        return "welcome";
     }
 
 }

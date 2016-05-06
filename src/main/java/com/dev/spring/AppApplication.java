@@ -14,13 +14,13 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by cky on 2016/5/6 11:10.
  */
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
-public class AppApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(AppApplication.class, args);
-    }
-
-}
+//@Configuration
+//@EnableAutoConfiguration
+//@ComponentScan
+//public class AppApplication {
+//
+//    public static void main(String[] args) {
+//        SpringApplication.run(AppApplication.class, args);
+//    }
+//
+//}

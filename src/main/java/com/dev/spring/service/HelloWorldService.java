@@ -18,8 +18,14 @@ public class HelloWorldService {
     @Value("${name}")
     private String name;
 
+    @Value("${application.message}")
+    private String message = "Hello World";
+
     public String getHelloMessage() {
         return " Hello " + this.name;
     }
 
+    public String getMessage() {
+        return message;
+    }
 }
