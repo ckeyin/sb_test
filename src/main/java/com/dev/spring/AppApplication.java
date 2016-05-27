@@ -6,6 +6,9 @@
 // ======================================
 package com.dev.spring;
 
+import com.dev.spring.config.MyApplicationEnvironmentPreparedEventListener;
+import com.dev.spring.config.MyApplicationFailedEventListener;
+import com.dev.spring.config.MyApplicationPreparedEventListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -16,7 +19,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AppApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AppApplication.class, args);
+
+        SpringApplication application = new SpringApplication(AppApplication.class);
+        application.addListeners(new MyApplicationEnvironmentPreparedEventListener(), new
+                MyApplicationPreparedEventListener(), new MyApplicationFailedEventListener());
+        application.run(args);
     }
 
 }
