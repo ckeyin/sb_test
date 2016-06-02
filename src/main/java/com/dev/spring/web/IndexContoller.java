@@ -28,7 +28,9 @@ public class IndexContoller {
         System.out.println(helloWorldService.getHelloMessage());
         model.put("time", new Date());
         model.put("message", helloWorldService.getMessage());
-        return "welcome";
+        model.put("test","test");
+        model.put("test1","test");
+        return "index";
     }
 
 
